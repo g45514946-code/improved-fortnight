@@ -1,7 +1,7 @@
 {
-  "name": "My Finance Tracker",
+  "name": "My Finance",
   "short_name": "My Finance",
-  "description": "Monthly finance tracker — debts, bills, grocery & to-do",
+  "description": "Your personal monthly finance tracker 🌸",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fff5f9",
@@ -20,7 +20,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "categories": ["finance", "productivity"],
-  "lang": "en"
+  ]
 }
