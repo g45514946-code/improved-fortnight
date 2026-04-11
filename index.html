@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="375">
 <meta name="theme-color" content="#7a3558" id="themeMetaColor">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,11 +24,12 @@
   --gbg:rgba(90,172,122,.12);--ybg:rgba(201,144,10,.12);--rbg:rgba(208,80,96,.11);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{width:100%;overflow-x:hidden;-webkit-text-size-adjust:none;text-size-adjust:none;font-size:16px}
 html,body{height:100%;overscroll-behavior:none}
-body{font-family:'DM Sans',sans-serif;background:var(--petal);color:var(--text);min-height:100vh;padding-bottom:72px;font-size:15px;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',sans-serif;background:var(--petal);color:var(--text);min-height:100vh;min-height:100dvh;padding-bottom:72px;font-size:15px;-webkit-font-smoothing:antialiased;width:100%;max-width:480px;margin:0 auto;overflow-x:hidden;position:relative}
 
 /* ─── HEADER ─── */
-header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding:env(safe-area-inset-top,0px) 16px 14px;padding-top:calc(env(safe-area-inset-top,0px) + 18px);position:sticky;top:0;z-index:50;box-shadow:0 3px 14px rgba(0,0,0,.13)}
+header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding:env(safe-area-inset-top,0px) 16px 14px;padding-top:calc(env(safe-area-inset-top,0px) + 18px);position:sticky;top:0;z-index:50;box-shadow:0 3px 14px rgba(0,0,0,.13);width:100%;max-width:480px}
 .hdr-row{display:flex;align-items:center;justify-content:space-between}
 .hdr-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;letter-spacing:.02em}
 .hdr-sub{font-size:.68rem;opacity:.78;margin-top:1px}
@@ -35,14 +38,14 @@ header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding
 .hbtn:active{background:rgba(255,255,255,.32)}
 
 /* ─── INSTALL BANNER ─── */
-#installBanner{display:none;background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding:10px 16px;align-items:center;gap:10px;font-size:.8rem;position:sticky;top:0;z-index:49}
+#installBanner{display:none;background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding:10px 16px;align-items:center;gap:10px;font-size:.8rem;position:sticky;top:0;z-index:49;width:100%;max-width:480px}
 #installBanner.show{display:flex}
 #installBanner span{flex:1}
 #installBanner button{background:rgba(255,255,255,.22);border:none;color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0}
 #installDismiss{background:none;padding:4px 8px;font-size:.9rem}
 
 /* ─── TAB BAR ─── */
-.tab-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid rgba(180,100,130,.15);z-index:90;box-shadow:0 -4px 20px rgba(120,50,80,.07);padding-bottom:env(safe-area-inset-bottom,0px);overflow-x:auto}
+.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;display:flex;border-top:1px solid rgba(180,100,130,.15);z-index:90;box-shadow:0 -4px 20px rgba(120,50,80,.07);padding-bottom:env(safe-area-inset-bottom,0px);overflow-x:auto}
 .tab-btn{flex:1;min-width:52px;padding:9px 2px 10px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;transition:color .15s}
 .tab-btn .ti{font-size:1.15rem;line-height:1}
 .tab-btn.active{color:var(--deep)}
@@ -179,7 +182,7 @@ header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding
 .hi-x{background:none;border:none;color:rgba(208,80,96,.4);cursor:pointer;font-size:.83rem;padding:0 3px}
 
 /* ─── MODALS ─── */
-.mbd{display:none;position:fixed;inset:0;background:rgba(61,32,48,.43);backdrop-filter:blur(5px);z-index:200;align-items:flex-end;justify-content:center}
+.mbd{display:none;position:fixed;inset:0;background:rgba(61,32,48,.43);backdrop-filter:blur(5px);z-index:200;align-items:flex-end;justify-content:center;width:100vw}
 .mbd.open{display:flex}
 .mbox{background:var(--white);border-radius:24px 24px 0 0;padding:16px 16px calc(env(safe-area-inset-bottom,0px) + 30px);width:100%;max-width:560px;max-height:88vh;overflow-y:auto;animation:slideUp .24s ease}
 @keyframes slideUp{from{transform:translateY(48px);opacity:0}to{transform:translateY(0);opacity:1}}
@@ -275,9 +278,104 @@ header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding
 .budget-safe{background:var(--green)}
 .budget-warn-bar{background:var(--yellow)}
 .budget-over{background:var(--red)}
+
+/* ─── WIDGET PAGE ─── */
+#page-widget{padding-bottom:80px}
+.widget-hero{background:linear-gradient(135deg,var(--hf),var(--ht));margin:10px 12px;border-radius:20px;padding:18px 16px;color:#fff;box-shadow:0 4px 18px rgba(122,53,88,.25)}
+.widget-date{font-size:.72rem;opacity:.8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.widget-day{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;line-height:1.1}
+.widget-greeting{font-size:.78rem;opacity:.75;margin-top:4px}
+.widget-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.widget-stat{background:rgba(255,255,255,.15);border-radius:12px;padding:10px 12px;backdrop-filter:blur(6px)}
+.widget-stat-lbl{font-size:.6rem;opacity:.75;text-transform:uppercase;letter-spacing:.05em}
+.widget-stat-val{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-top:2px}
+
+/* ─── WIDGET MINI CAL ─── */
+.wcal-wrap{background:#fff;border-radius:20px;margin:0 12px 10px;box-shadow:0 2px 14px var(--shadow);overflow:hidden}
+.wcal-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 15px 10px;border-bottom:1px solid rgba(180,100,130,.07)}
+.wcal-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--deep)}
+.wcal-nav{display:flex;gap:4px}
+.wcal-nav button{background:none;border:none;color:var(--mauve);font-size:1rem;cursor:pointer;padding:2px 8px;border-radius:8px}
+.wcal-body{padding:10px 12px 14px}
+.wcal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:6px}
+.wcal-dow{text-align:center;font-size:.52rem;color:var(--muted);font-weight:700;padding:2px 0;text-transform:uppercase}
+.wcd{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:.72rem;cursor:pointer;transition:background .13s;color:var(--text)}
+.wcd.today{background:var(--deep);color:#fff;font-weight:700}
+.wcd.sel:not(.today){background:var(--blush);color:var(--deep);font-weight:700}
+.wcd.other{color:rgba(158,104,128,.25);cursor:default}
+.wcd.has-event::after{content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:var(--rose)}
+.wcd.today.has-event::after{background:#fff}
+.wcal-day-detail{margin-top:6px}
+.wcal-day-title{font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;margin-bottom:5px}
+.wcal-event{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;margin-bottom:4px;font-size:.76rem}
+.wcal-event.bill{background:var(--rbg);border-left:3px solid var(--red)}
+.wcal-event.paid{background:var(--gbg);border-left:3px solid var(--green)}
+.wcal-event.task{background:var(--ybg);border-left:3px solid var(--yellow)}
+.wcal-event.debt{background:rgba(180,100,130,.1);border-left:3px solid var(--rose)}
+.wcal-event-name{flex:1;font-weight:500;color:var(--text)}
+.wcal-event-amt{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--deep);font-size:.82rem}
+.wcal-empty{font-size:.74rem;color:var(--muted);font-style:italic;text-align:center;padding:8px 0}
+
+/* ─── WIDGET TODO ─── */
+.wtodo-wrap{background:#fff;border-radius:20px;margin:0 12px 10px;box-shadow:0 2px 14px var(--shadow);overflow:hidden}
+.wtodo-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 15px 10px;border-bottom:1px solid rgba(180,100,130,.07)}
+.wtodo-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--deep)}
+.wtodo-count{font-size:.65rem;color:var(--muted);background:var(--blush);padding:2px 8px;border-radius:99px;font-weight:600}
+.wtodo-body{padding:10px 12px 12px}
+.wtodo-item{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:1px solid rgba(180,100,130,.06)}
+.wtodo-item:last-child{border-bottom:none}
+.wtodo-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.wtodo-info{flex:1;min-width:0}
+.wtodo-name{font-size:.84rem;font-weight:500;color:var(--text)}
+.wtodo-name.done{text-decoration:line-through;color:var(--muted)}
+.wtodo-due{font-size:.64rem;color:var(--muted);margin-top:1px}
+.wtodo-chk{display:none}
+.wtodo-chk-lbl{width:20px;height:20px;border-radius:6px;border:2px solid rgba(180,100,130,.33);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .17s;background:var(--petal);font-size:.65rem;color:transparent;flex-shrink:0;margin-top:1px}
+.wtodo-chk:checked+.wtodo-chk-lbl{background:var(--green);border-color:var(--green);color:#fff}
+.wtodo-qadd{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(180,100,130,.18)}
+.wtodo-see-all{display:block;text-align:center;font-size:.74rem;color:var(--mauve);font-weight:600;padding:8px;cursor:pointer;border:none;background:none;width:100%;font-family:'DM Sans',sans-serif}
+
+
+/* ─── WELCOME PAGE ─── */
+#welcomePage{position:fixed;inset:0;z-index:999;background:linear-gradient(160deg,#7a3558 0%,#c07090 60%,#fce8f0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;transition:opacity .5s ease,transform .5s ease}
+#welcomePage.hide{opacity:0;transform:translateY(-30px);pointer-events:none}
+.wlc-petals{font-size:3.5rem;margin-bottom:8px;animation:petalFloat 3s ease-in-out infinite}
+@keyframes petalFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-10px) rotate(5deg)}}
+.wlc-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:#fff;letter-spacing:.02em;margin-bottom:6px;text-shadow:0 2px 12px rgba(0,0,0,.15)}
+.wlc-sub{font-size:.9rem;color:rgba(255,255,255,.82);margin-bottom:10px;letter-spacing:.03em}
+.wlc-divider{width:40px;height:2px;background:rgba(255,255,255,.4);border-radius:99px;margin:16px auto}
+.wlc-features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;width:100%;max-width:280px}
+.wlc-feat{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.15);border-radius:14px;padding:10px 14px;backdrop-filter:blur(8px)}
+.wlc-feat-icon{font-size:1.2rem;flex-shrink:0}
+.wlc-feat-text{font-size:.82rem;color:#fff;text-align:left;line-height:1.4}
+.wlc-feat-text strong{display:block;font-weight:600;font-size:.85rem}
+.wlc-btn{background:#fff;color:#7a3558;border:none;border-radius:20px;padding:15px 40px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:transform .15s,box-shadow .15s;width:100%;max-width:280px}
+.wlc-btn:active{transform:scale(.97);box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.wlc-name-wrap{margin-bottom:20px;width:100%;max-width:280px}
+.wlc-name-inp{width:100%;padding:13px 18px;border-radius:16px;border:none;background:rgba(255,255,255,.2);color:#fff;font-size:.95rem;font-family:'DM Sans',sans-serif;outline:none;text-align:center;backdrop-filter:blur(8px)}
+.wlc-name-inp::placeholder{color:rgba(255,255,255,.6)}
+.wlc-greeting{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:16px}
 </style>
 </head>
 <body>
+
+<!-- ══════════ WELCOME PAGE ══════════ -->
+<div id="welcomePage">
+  <div class="wlc-petals">🌸</div>
+  <div class="wlc-title">My Finance</div>
+  <div class="wlc-sub">Your personal money tracker ✨</div>
+  <div class="wlc-divider"></div>
+  <div class="wlc-features">
+    <div class="wlc-feat"><div class="wlc-feat-icon">💰</div><div class="wlc-feat-text"><strong>Track Income & Expenses</strong>Bills, debts, grocery & more</div></div>
+    <div class="wlc-feat"><div class="wlc-feat-icon">🎯</div><div class="wlc-feat-text"><strong>Savings Goals</strong>Save up for what you love</div></div>
+    <div class="wlc-feat"><div class="wlc-feat-icon">📊</div><div class="wlc-feat-text"><strong>Monthly Reports</strong>See where your money goes</div></div>
+  </div>
+  <div class="wlc-name-wrap">
+    <input class="wlc-name-inp" id="wlcName" type="text" placeholder="What's your name? (optional)" maxlength="30">
+  </div>
+  <button class="wlc-btn" onclick="enterApp()">Get Started 🌸</button>
+  <div class="wlc-greeting" id="wlcGreeting"></div>
+</div>
 
 <header>
   <div class="hdr-row">
@@ -382,6 +480,59 @@ header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding
       <span class="chevron open" id="chev-today">▾</span>
     </div>
     <div class="sec-body open" id="sec-body-today"><div id="todayList"></div></div>
+  </div>
+
+</div>
+
+<!-- ══════════ WIDGET PAGE ══════════ -->
+<div class="page" id="page-widget">
+
+  <!-- HERO DATE CARD -->
+  <div class="widget-hero">
+    <div class="widget-date" id="w-date"></div>
+    <div class="widget-day" id="w-day"></div>
+    <div class="widget-greeting" id="w-greeting"></div>
+    <div class="widget-stats">
+      <div class="widget-stat">
+        <div class="widget-stat-lbl">Due Today</div>
+        <div class="widget-stat-val" id="w-due-count">—</div>
+      </div>
+      <div class="widget-stat">
+        <div class="widget-stat-lbl">Tasks Left</div>
+        <div class="widget-stat-val" id="w-task-count">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINI CALENDAR -->
+  <div class="wcal-wrap">
+    <div class="wcal-hdr">
+      <div class="wcal-title" id="wcalLbl">—</div>
+      <div class="wcal-nav">
+        <button onclick="wcalPrev()">‹</button>
+        <button onclick="wcalNext()">›</button>
+      </div>
+    </div>
+    <div class="wcal-body">
+      <div class="wcal-grid" id="wcalGrid"></div>
+      <div class="wcal-day-detail" id="wcalDetail"></div>
+    </div>
+  </div>
+
+  <!-- TO-DO WIDGET -->
+  <div class="wtodo-wrap">
+    <div class="wtodo-hdr">
+      <div class="wtodo-title">✅ To-Do</div>
+      <span class="wtodo-count" id="wtodo-count">0 pending</span>
+    </div>
+    <div class="wtodo-body">
+      <div id="wtodoList"></div>
+      <div class="wtodo-qadd">
+        <input class="qadd-inp" id="wtdName" placeholder="Quick add task..." type="text" onkeydown="if(event.key==='Enter')wQuickAddTodo()">
+        <button class="qadd-btn" onclick="wQuickAddTodo()">＋</button>
+      </div>
+      <button class="wtodo-see-all" onclick="goTabByName('todo')">See all tasks →</button>
+    </div>
   </div>
 
 </div>
@@ -554,6 +705,7 @@ header{background:linear-gradient(135deg,var(--hf),var(--ht));color:#fff;padding
 <!-- ══════════ TAB BAR ══════════ -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="goTab('home',this)"><span class="ti">🏠</span>Home</button>
+  <button class="tab-btn" onclick="goTab('widget',this)"><span class="ti">📋</span>Today</button>
   <button class="tab-btn" onclick="goTab('income',this)"><span class="ti">💰</span>Income</button>
   <button class="tab-btn" onclick="goTab('debts',this)"><span class="ti">💳</span>Debts</button>
   <button class="tab-btn" onclick="goTab('bills',this)"><span class="ti">🧾</span>Bills</button>
@@ -1505,11 +1657,168 @@ document.getElementById('emojiRow').querySelectorAll('.epick').forEach(e=>{
   };
 });
 
+// ════════ WIDGET PAGE ════════
+let wcalY=CY, wcalM=CM, wcalSel=CD;
+
+function goTabByName(name){
+  const btns=document.querySelectorAll('.tab-btn');
+  const pages=document.querySelectorAll('.page');
+  pages.forEach(p=>p.classList.remove('active'));
+  btns.forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  btns.forEach(b=>{ if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+name+"'")) b.classList.add('active'); });
+}
+
+function renderWidget(){
+  // Hero date
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('w-date').textContent=`${months[CM]} ${CD}, ${CY}`;
+  document.getElementById('w-day').textContent=days[NOW.getDay()];
+  const hr=NOW.getHours();
+  const greet=hr<12?'Good morning ☀️':hr<18?'Good afternoon 🌤️':'Good evening 🌙';
+  const uname=localStorage.getItem('ft_username')||'';
+  document.getElementById('w-greeting').textContent=uname?`${greet}, ${uname}!`:greet;
+
+  // Stats
+  const dueToday=[...debts,...bills].filter(i=>Number(i.dueDay)===CD&&!isPaidThisMonth(i)).length;
+  const tasksDue=todos.filter(t=>!t.done&&t.dueDate===todayStr()).length;
+  const pending=todos.filter(t=>!t.done).length;
+  document.getElementById('w-due-count').textContent=dueToday+tasksDue||'None 🎉';
+  document.getElementById('w-task-count').textContent=pending||'All done 🎉';
+
+  buildWcal();
+  renderWtodo();
+}
+
+function buildWcal(){
+  const mk=`${wcalY}-${String(wcalM+1).padStart(2,'0')}`;
+  document.getElementById('wcalLbl').textContent=`${MNAMES[wcalM]} ${wcalY}`;
+  const dueDays=new Set(), paidDays=new Set(), todoDays=new Set();
+  [...debts,...bills].forEach(item=>{
+    if(item.dueDay) dueDays.add(Number(item.dueDay));
+    (item.history||[]).forEach(h=>{ if(h.month===mk&&h.date) paidDays.add(parseInt(h.date.split('-')[2])); });
+  });
+  todos.forEach(t=>{ if(t.dueDate&&t.dueDate.startsWith(mk)&&!t.done) todoDays.add(parseInt(t.dueDate.split('-')[2])); });
+
+  const first=new Date(wcalY,wcalM,1).getDay();
+  const dim=new Date(wcalY,wcalM+1,0).getDate();
+  const prev=new Date(wcalY,wcalM,0).getDate();
+  let html=DOWS.map(d=>`<div class="wcal-dow">${d}</div>`).join('');
+  for(let i=first-1;i>=0;i--) html+=`<div class="wcd other">${prev-i}</div>`;
+  for(let d=1;d<=dim;d++){
+    const isToday=wcalY===CY&&wcalM===CM&&d===CD;
+    const isSel=wcalSel===d&&wcalY===CY&&wcalM===CM||wcalSel===d&&!(wcalY===CY&&wcalM===CM);
+    const hasEv=dueDays.has(d)||paidDays.has(d)||todoDays.has(d);
+    let cls='wcd';
+    if(isToday) cls+=' today'; else if(wcalSel===d) cls+=' sel';
+    if(hasEv) cls+=' has-event';
+    html+=`<div class="${cls}" onclick="wcalSelect(${d})">${d}</div>`;
+  }
+  const total=first+dim; const rem=total%7===0?0:7-total%7;
+  for(let i=1;i<=rem;i++) html+=`<div class="wcd other">${i}</div>`;
+  document.getElementById('wcalGrid').innerHTML=html;
+  wcalShowDetail(wcalSel);
+}
+
+function wcalSelect(d){ wcalSel=d; buildWcal(); }
+function wcalPrev(){ wcalM--; if(wcalM<0){wcalM=11;wcalY--;} wcalSel=null; buildWcal(); }
+function wcalNext(){ wcalM++; if(wcalM>11){wcalM=0;wcalY++;} wcalSel=null; buildWcal(); }
+
+function wcalShowDetail(d){
+  const el=document.getElementById('wcalDetail');
+  if(!d){ el.innerHTML=''; return; }
+  const mk=`${wcalY}-${String(wcalM+1).padStart(2,'0')}`;
+  const ds=`${mk}-${String(d).padStart(2,'0')}`;
+  let html=`<div class="wcal-day-title">${MNAMES[wcalM]} ${d}</div>`;
+  let found=false;
+
+  // Bills & debts due
+  [...bills,...debts].forEach(item=>{
+    if(Number(item.dueDay)===d){
+      const paid=(item.history||[]).some(h=>h.month===mk);
+      const isDebt=debts.includes(item);
+      html+=`<div class="wcal-event ${paid?'paid':isDebt?'debt':'bill'}">
+        <span class="wcal-event-name">${paid?'✓':isDebt?'💳':'🧾'} ${item.name}</span>
+        <span class="wcal-event-amt">${fmt(item.monthly||item.amount||0)}</span>
+      </div>`;
+      found=true;
+    }
+    // Paid history
+    (item.history||[]).forEach(h=>{ if(h.date===ds){
+      html+=`<div class="wcal-event paid"><span class="wcal-event-name">✓ Paid: ${item.name}${h.method?' · '+h.method:''}</span><span class="wcal-event-amt">${fmt(h.amount)}</span></div>`;
+      found=true;
+    }});
+  });
+
+  // Todos due
+  todos.filter(t=>t.dueDate===ds&&!t.done).forEach(t=>{
+    const priColor=PRI_COLORS[t.priority||'med'];
+    html+=`<div class="wcal-event task"><span class="wcal-event-name">📌 ${t.name}</span><span style="font-size:.65rem;color:${priColor};font-weight:700">${t.priority||'med'}</span></div>`;
+    found=true;
+  });
+
+  if(!found) html+=`<div class="wcal-empty">Nothing scheduled 🌸</div>`;
+  el.innerHTML=html;
+}
+
+function renderWtodo(){
+  const el=document.getElementById('wtodoList');
+  const pending=todos.filter(t=>!t.done);
+  const pOrd={high:0,med:1,low:2};
+  const sorted=[...pending].sort((a,b)=>(pOrd[a.priority||'med']-pOrd[b.priority||'med'])||(a.dueDate||'9999').localeCompare(b.dueDate||'9999'));
+  document.getElementById('wtodo-count').textContent=`${pending.length} pending`;
+
+  if(!sorted.length){ el.innerHTML='<div class="wcal-empty">All done! 🎉</div>'; return; }
+
+  // Show top 5
+  const shown=sorted.slice(0,5);
+  el.innerHTML=shown.map(t=>{
+    const i=todos.indexOf(t);
+    const priColor=PRI_COLORS[t.priority||'med'];
+    const diff=daysDiff(t.dueDate);
+    let dueText='';
+    if(t.dueDate){
+      if(diff<0) dueText=`⚠️ ${Math.abs(diff)}d overdue`;
+      else if(diff===0) dueText='Due today!';
+      else if(diff<=3) dueText=`Due in ${diff}d`;
+      else dueText=`Due ${t.dueDate}`;
+    }
+    return `<div class="wtodo-item">
+      <input class="wtodo-chk" type="checkbox" id="wtc${i}" onchange="wDoneTodo(${i},this)">
+      <label class="wtodo-chk-lbl" for="wtc${i}">✓</label>
+      <div style="width:7px;height:7px;border-radius:50%;background:${priColor};flex-shrink:0;margin-top:6px"></div>
+      <div class="wtodo-info">
+        <div class="wtodo-name">${t.name}</div>
+        ${dueText?`<div class="wtodo-due" style="color:${diff<=0?'var(--red)':'var(--muted)'}">${dueText}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function wDoneTodo(i,el){
+  todos[i].done=true; todos[i].doneAt=todayStr();
+  sv('ft_todos',todos); el.checked=false;
+  renderWtodo(); renderTodos(); renderSummary();
+  document.getElementById('w-task-count').textContent=todos.filter(t=>!t.done).length||'All done 🎉';
+}
+
+function wQuickAddTodo(){
+  const name=document.getElementById('wtdName').value.trim();
+  if(!name) return;
+  todos.push({name,priority:'med',done:false,notes:'',dueDate:''});
+  sv('ft_todos',todos);
+  document.getElementById('wtdName').value='';
+  renderWtodo(); renderTodos(); renderSummary();
+  document.getElementById('w-task-count').textContent=todos.filter(t=>!t.done).length;
+}
+
 // ════════ RENDER ALL ════════
 function renderAll(){
   buildCal(); renderSummary(); renderToday();
   renderDebts(); renderBills(); renderGrocery(); renderTodos();
   renderIncome(); renderGoals(); renderBudgets(); renderMoods();
+  renderWidget();
 }
 
 // ════════ PWA INSTALL ════════
@@ -1537,7 +1846,39 @@ if('serviceWorker' in navigator){ window.addEventListener('load',()=>{ navigator
   document.getElementById('appTitle').textContent=title;
   document.getElementById('appSub').textContent=sub;
   updateExportLbl();
+
+  // Welcome page logic
+  const seen=localStorage.getItem('ft_welcomed');
+  const userName=localStorage.getItem('ft_username')||'';
+  if(seen){
+    // Already visited — skip welcome
+    document.getElementById('welcomePage').style.display='none';
+    if(userName){ updateGreeting(userName); }
+  } else {
+    // Show welcome page
+    document.getElementById('welcomePage').style.display='flex';
+  }
 })();
+
+// ════════ WELCOME ════════
+function enterApp(){
+  const nameInput=document.getElementById('wlcName').value.trim();
+  if(nameInput){
+    localStorage.setItem('ft_username', nameInput);
+    updateGreeting(nameInput);
+  }
+  localStorage.setItem('ft_welcomed','1');
+  const wp=document.getElementById('welcomePage');
+  wp.classList.add('hide');
+  setTimeout(()=>{ wp.style.display='none'; },520);
+}
+function updateGreeting(name){
+  const hr=new Date().getHours();
+  const greet=hr<12?'Good morning':hr<18?'Good afternoon':'Good evening';
+  const subEl=document.getElementById('appSub');
+  if(subEl) subEl.textContent=`${greet}, ${name} ✨`;
+}
+document.getElementById('wlcName').addEventListener('keydown', e=>{ if(e.key==='Enter') enterApp(); });
 
 // ════════ SAMPLE DATA ════════
 if(!debts.length&&!bills.length&&!grocery.length&&!todos.length){
